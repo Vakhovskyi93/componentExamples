@@ -1,0 +1,205 @@
+@import '../../../../scss/values';
+
+::ng-deep .multi-select-wrap {
+  height: 32px;
+  width: 115px;
+  margin-right: 15px;
+
+  mat-form-field {
+    height: 32px;
+    width: 100%;
+
+    * {
+      border: none;
+    }
+
+    .mat-form-field-wrapper {
+      padding: 0;
+    }
+
+    .mat-form-field-flex {
+      padding: 0;
+      background-color: transparent;
+    }
+
+    .mat-form-field-label-wrapper {
+      top: 0;
+      padding: 0;
+    }
+
+    .mat-form-field-infix {
+      padding: 0;
+    }
+
+    .mat-select {
+      border: 1px solid var(--select-border-color);
+      border-radius: 4px;
+      height: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mat-select-value {
+      overflow: visible;
+      padding-top: 2px;
+
+      .mat-select-value-text {
+        display: flex;
+        position: relative;
+        overflow: visible;
+
+        mat-select-trigger {
+          position: relative;
+          right: 12px;
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          border-radius: 50px;
+          text-align: center;
+          color: var(--mat-select-triger-font-color);
+          background: var(--mat-select-label-counter);
+          margin: auto 2px auto auto;
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    .mat-form-field-label {
+      transform: none !important;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      margin-right: 15px;
+      width: 100% !important;
+      padding: 0 0 0 10px;
+      top: 14px;
+
+      mat-label {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 95%;
+        color: var(--mat-select-label-font-color);
+        top: 1px;
+
+        mat-icon {
+          float: right;
+          width: 16px;
+          height: 16px;
+
+          path {
+            stroke: var(--mat-select-label-font-color);
+          }
+        }
+      }
+    }
+
+    .mat-form-field-underline {
+      display: none;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+      background-color: transparent;
+    }
+  }
+
+  &.custom-action-btn {
+    margin-right: 0;
+  }
+}
+
+::ng-deep {
+  .multiselect-overlay {
+    min-width: -webkit-fit-content !important;
+    min-width: -moz-fit-content !important;
+    min-width: fit-content !important;
+    max-height: unset !important;
+    overflow: hidden !important;
+    max-height: 410px !important;
+    overflow: auto !important;
+
+    .mat-option.mat-active {
+      background-color: transparent;
+      background: transparent;
+    }
+
+    .mat-option.mat-selected:not(.mat-option-disabled) {
+      color: var(--main-font-color) !important;
+    }
+
+    .mat-option {
+      .mat-option-text {
+        display: inline-block;
+        overflow: hidden;
+        width: 194px;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .scrollable-options {
+      min-height: -webkit-fit-content;
+      min-height: -moz-fit-content;
+      min-height: fit-content;
+      max-height: 345px;
+      overflow: auto;
+      overflow: overlay;
+      padding: 10px 0 0 0;
+    }
+  }
+}
+
+.multiselect-overlay .mat-option.mat-active {
+  background-color: transparent;
+  background: transparent;
+}
+
+@-moz-document url-prefix() {
+  mat-form-field {
+    .mat-form-field-label {
+      line-height: 15px !important;
+    }
+  }
+}
+
+.multi-select-btn-wrapper {
+  padding: 10px 10px 15px 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.custom-action-btn {
+  height: 32px;
+  width: 80px;
+
+  .custom-btn-title {
+  font-size: 12px;
+}
+
+  mat-icon {
+    width: 20px;
+    height: 20px;
+    line-height: 0;
+  }
+}
+
+@media screen and (min-width: $tablet-min-width-trigger) {
+  ::ng-deep .multi-select-wrap {
+    mat-form-field {
+      .mat-select-value {
+        .mat-select-value-text {
+          mat-select-trigger {
+            margin: auto 5px auto auto;
+          }
+        }
+      }
+    }
+  }
+}

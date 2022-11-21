@@ -1,0 +1,38 @@
+<div class="trading-progress-bar" [ngClass]='size'>
+  <div
+    class="donat"
+    [ngStyle]="{'--progress': percentProgress + 'deg'}"
+    [ngClass]="{
+      'goal-get-bg-color': !isFirstTimeOpening && (tasksLength === 0 || value === 100),
+      'large-goal-get-color': value === 100, 'zero-progress': value === 0,
+      'was-not-opened-yet': isFirstTimeOpening
+    }"
+    >
+    <div class="content" *ngIf="size === 'small'">
+      <span
+        class="content"
+        *ngIf="tasksLength > 0 && value !== 100 && !isFirstTimeOpening"
+        [ngClass]="{ 'zero-progress': value === 0 }"
+      >
+        {{ value }}%
+      </span>
+
+      <mat-icon
+        class="content icon xl-icon"
+        svgIcon="warning-icon"
+        *ngIf="tasksLength === 0 || isFirstTimeOpening"
+      ></mat-icon>
+
+      <mat-icon
+        class="content icon xl-icon"
+        svgIcon="success-icon"
+        *ngIf="value === 100 && !isFirstTimeOpening"
+      ></mat-icon>
+    </div>
+    <div class="content" *ngIf="size === 'large'">
+      <span [ngClass]="{ 'goal-get-color': value === 100, 'zero-progress': value === 0 }">
+        {{ value }}%
+      </span>
+    </div>
+  </div>
+</div>

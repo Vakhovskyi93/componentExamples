@@ -1,0 +1,35 @@
+<div class="expected-wrapper" [ngClass]="wrapperClass">
+    <div class="header-wrap">
+        <span class="header">Expected</span>
+        <span class="header">Move</span>
+    </div>
+    <div class="move-wrapper" #expected>
+        <ng-container *ngFor='let item of expectedMoves; let i = index'>
+            <div class="item" (click)="onExpectedMoveClick(i)">
+                <div class="data-wrapper">
+                    <span class="date">{{ item.expirationDate | date:'MMM d'}}</span>
+                    <div *ngIf="wrapperClass == 'default'" class="hide-icon"> 
+                        <app-hide-icon  [hideStatus]="i === 0 ? showExpectedMoveOne : showExpectedMoveTwo"></app-hide-icon>
+                    </div>
+                </div>
+                <div class="move-up">
+                    <div class="data">
+                        <mat-icon [svgIcon]="'long-arrow-icon'" class="arrow"></mat-icon>
+                        <span class="price">${{item.priceUp | number:'1.2-2'}}</span>
+                        <app-label [appendClass]="'light-success'">
+                            <p>{{item.expectedPercent | number:'1.2-2' }}%</p>
+                        </app-label>
+                    </div>
+                    <div class="data">
+                        <mat-icon [svgIcon]="'long-arrow-icon'" class="arrow down"></mat-icon>
+                        <span class="price">${{item.priceDown | number:'1.2-2'}}</span>
+                        <app-label [appendClass]="'light-danger'">
+                            <p>-{{item.expectedPercent | number:'1.2-2' }}%</p>
+                        </app-label>
+                    </div>
+                </div>
+            </div>
+            <span *ngIf='i === 0 && expectedMoves.length > 1' class="expected-dot"></span>
+        </ng-container>
+    </div>
+</div>

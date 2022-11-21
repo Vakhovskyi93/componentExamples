@@ -1,0 +1,20 @@
+<div class="range-slider-wrapper settings-slider">
+    <div class="range-slider-labels">
+        <span class="label-name">ROI, %</span>
+        <div class="legends">
+            <div class="per-legend">
+                <div class="lightGreenColor"></div>
+                <span>Meets the requirements</span>
+              </div>
+              <div class="per-legend">
+                <div class="lightPinkColor"></div>
+                <span>Does not meet the requirements</span>
+              </div>
+              <div class="per-legend">
+                <div class="lightYellowColor"></div>
+                <span>Warning</span>
+              </div>
+        </div>
+    </div>
+    <ngx-slider [value]="value" [highValue]="highValue" (userChangeEnd)="onUserChangeEnd($event)" [options]="options"></ngx-slider>
+</div>

@@ -1,0 +1,28 @@
+<div class="multi-select-wrap">
+  <mat-form-field appearance="fill">
+    <mat-label>{{title}}
+      <mat-icon matPrefix [svgIcon]="'arrow-left_icon'"></mat-icon>
+    </mat-label>
+    <mat-select panelClass='multiselect-overlay scroll-style' multiple [formControl]="formControlG">
+      <mat-select-trigger>
+        {{formControlG.value?.length }}
+      </mat-select-trigger>
+      <div class="scrollable-options scroll-style">
+        <mat-option *ngFor="let item of data" 
+        [tooltip]="item.title" 
+        tooltip-class="custom-tooltip" 
+        show-delay='250'
+        [display]='item.title.length > 30' 
+        [displayTouchscreen]='item.title.length > 30'
+        [value]="item.value"
+        >{{item.title}}</mat-option>
+      </div>
+      <div class="multi-select-btn-wrapper">
+        <button mat-button (click)="reset()" class="custom-action-btn ">
+          <mat-icon [svgIcon]="'reset_icon'"></mat-icon>
+          <span class="custom-btn-title right-side-title">Reset</span>
+        </button>
+      </div>
+    </mat-select>
+  </mat-form-field>
+</div>

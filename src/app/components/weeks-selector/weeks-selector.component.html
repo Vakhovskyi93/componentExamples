@@ -1,0 +1,41 @@
+<div class="selector" [ngStyle]="{ 'width.px': selectorWidth }" *ngIf="weeksArray">
+    <button
+        mat-button
+        type="button"
+        class="icon-button content-center week-control-btn"
+        (click)="submitPrev()"
+        [disabled]="weeksArray[0] === weeksArray[selectedIndex]">
+        <mat-icon class="small-icon arrow-icon" [svgIcon]="'arrow-left_icon'"></mat-icon>
+    </button>
+    <div class="select-wrap"> 
+        <div class="form-group"> 
+            <mat-select
+            [value]="weeksArray[selectedIndex]"
+            panelClass="primary-active week-selector" 
+            class="select-style custom-size custom-arrow"  
+            (selectionChange)="valueChanged($event)"> 
+                <mat-option  *ngFor="let value of weeksArray" [value]="value">
+                    <span class="title-wrapper">
+                        <span>{{value.weekName}}</span>
+                        <span>{{value.weekValue}}</span> 
+                    </span>
+                </mat-option>
+            </mat-select>
+        </div>
+    </div>
+    <button
+        mat-button
+        type="button"
+        class="icon-button content-center week-control-btn"
+        (click)="submitNext()"
+        [disabled]="weeksArray[weeksArray.length-1] === weeksArray[selectedIndex]">
+        <mat-icon class="small-icon arrow-icon" [svgIcon]="'arrow-left_icon'"></mat-icon>
+    </button>
+</div> 
+<div class="events-time">
+    <span class="time-title">All events in Eastern Time</span>
+    <span class="current-time-wrapper">
+        <mat-icon class="small-icon primary-time-icon" [svgIcon]="'time'"></mat-icon>
+        <span class="current-time">{{currentTime}}</span>
+    </span>
+</div>

@@ -1,0 +1,145 @@
+@import '../../../../scss/mixins/fonts';
+@import '../../../../scss/values';
+
+.trading-progress-bar {
+  .donat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+
+    &::before {
+      content: "";
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 50%;
+      top: 0px;
+      background: var(--trading-hub-progress-value-background-color);
+    }
+  }
+
+  &.large .donat.zero-progress,
+  &.small .donat.zero-progress {
+    background: conic-gradient(var( --trading-hub-progress-zero-back-layout-color)
+     var(--progress), var(--trading-hub-progress-zero-back-layout-color) 0deg);
+    position: relative;
+   
+    .content {
+    color: var(--trading-hub-zero-progress-color);
+  }}
+
+  &.small {
+    width: 20px;
+    height: 20px;
+
+    .donat {
+      background: conic-gradient(var(--trading-hub-progress-bar-color) var(--progress), var(--trading-hub-progress-back-layout-color) 0deg);
+      position: relative;
+
+      &::before {
+        width: 16px;
+        height: 16px;
+        margin: 2px;
+        background: var(--trading-hub-progress-value-background-color);
+      }
+      
+      @media screen and (-webkit-min-device-pixel-ratio: 1.09375), screen and (min-resolution: 105dpi) {
+        &::before { 
+          height: 17px;  
+        }
+      }
+      
+      @media screen and (-webkit-min-device-pixel-ratio: 1.25), screen and (min-resolution: 120dpi) {
+        &::before { 
+          height: 17px;
+          width: 17px; 
+        }
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio: 1.4583333333333333), screen and (min-resolution: 140dpi) {
+        &::before { 
+          height: 16px;
+          width: 16px; 
+        }
+      }
+
+      &.goal-get-bg-color {
+        background: var(--active-link);
+
+        &::before {
+          background-color: var(--active-link);
+        }
+
+        .content.warning,
+        .content.icon {
+          color: var(--trading-hub-progress-content-icon-color);
+        }
+      }
+
+      &.was-not-opened-yet {
+        background: var(--active-link);
+
+        &::before {
+          background-color: var(--active-link);
+        }
+
+        .content.warning,
+        .content.icon {
+          color: var(--trading-hub-progress-content-icon-color);
+        }
+      } 
+    }
+
+    .content {
+      @include apply-tbd-progress-center-label-font-style();
+      text-align: center;
+      color: var(--orange-point);
+      display: block;
+      z-index: 2;
+    }
+  }
+
+  &.large {
+    width: 64px;
+    height: 64px;
+
+    .donat {
+      background: conic-gradient(var(--trading-hub-progress-bar-color) var(--progress), var(--trading-hub-progress-back-layout-color) 0deg);
+      position: relative;
+
+      &::before {
+        width: 56px;
+        height: 56px;
+        margin: 4px;
+        background: var(--trading-hub-progress-value-background-color);
+      }
+
+      &.large-goal-get-color {
+        background: conic-gradient(var(--active-link) var(--progress),
+            var(--trading-hub-progress-back-layout-color) 0deg);
+
+        .content {
+          color: var(--active-link);
+        }
+      }
+    }
+
+    .content {
+      font-weight: 700;
+      font-size: 19.6923px;
+      line-height: 23px;
+    }
+  }
+
+  .content {
+    @include apply-tbd-progress-center-label-font-style();
+    text-align: center;
+    color: var(--orange-point);
+    display: block;
+    z-index: 2;
+  }
+}

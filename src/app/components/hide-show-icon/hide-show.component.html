@@ -1,0 +1,6 @@
+<mat-icon 
+  class="custom-icon-size eye-icon" 
+  [ngClass]="{'visibility': hideStatus}" 
+  (click)="toggle()" 
+  [svgIcon]=" hideStatus ? 'eye' : 'close-eye'"
+></mat-icon>

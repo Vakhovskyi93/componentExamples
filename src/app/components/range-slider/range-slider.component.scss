@@ -1,0 +1,40 @@
+@import '../../../scss/values';
+
+.range-slider-labels {
+    display: flex;
+    align-items: center;
+    margin: 0 -10px 11px -10px;
+
+    .legends {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+
+        .per-legend {
+            margin-left: 20px;
+
+            span {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 130%;
+            }
+        }
+    }
+
+    .label-name {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        color: var(--main-font-color);
+    }
+}
+
+@media screen and (min-width: $mobile-min-575px-width-trigger) {
+    .range-slider-labels {
+        .legends {
+            display: flex;
+            flex-direction: row;
+            margin-left: auto;
+        }
+    }
+}
