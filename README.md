@@ -1,3 +1,6 @@
+AngularPartsExamples is just examples.
+Path to components: src/app/components
+
 # AngularPartsExamples
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
